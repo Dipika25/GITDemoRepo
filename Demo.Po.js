@@ -41,7 +41,11 @@ describe('angularjs homepage', function() {
       expect(todoList.count()).toEqual(2);
       expect(todoList.get(1).getText()).toEqual('build an angular app');
     });
-
+    var elementToBePresent=' aaa'
+expect(elementToBePresent.isPresent()).toBe(false);
+element(by.css("#mybutton")).click().then(function () {
+    expect(elementToBePresent.isPresent()).toBe(true);
+});
     it('should add a todo', function() {
       var addTodo = element(by.model('todoList.todoText'));
       var addButton = element(by.css('[value="add"]'));
