@@ -24,15 +24,6 @@ describe('angularjs homepage', function() {
         browser.get('http://' + fqdn);
         browser.ignoreSynchronization = true;
       });  
-<<<<<<< HEAD
-      ElementFinder.prototype.then = function(fn, errorFn) {
-        if (this.opt_actionResult_) {
-          return this.opt_actionResult_.then(fn, errorFn);
-        } else {
-          return webdriver.promise.fulfilled(fn(this)); // Change this line?
-        }
-      };
-=======
        ElementFinder.prototype.then = function(fn, errorFn) {
     if (this.opt_actionResult_) {
       return this.opt_actionResult_.then(fn, errorFn);
@@ -40,7 +31,6 @@ describe('angularjs homepage', function() {
       return webdriver.promise.fulfilled(fn(this)); // Change this line?
     }
   };
->>>>>>> 5d78d048ae5f90511c1e5902b96ec1f6dad1f645
     it('should always return a promise', function(){
         var e1 = element(by.tagName("body")).then(function(){});
         expect(e1).toBeUndefined();
