@@ -24,6 +24,13 @@ describe('angularjs homepage', function() {
         browser.get('http://' + fqdn);
         browser.ignoreSynchronization = true;
       });  
+       ElementFinder.prototype.then = function(fn, errorFn) {
+    if (this.opt_actionResult_) {
+      return this.opt_actionResult_.then(fn, errorFn);
+    } else {
+      return webdriver.promise.fulfilled(fn(this)); // Change this line?
+    }
+  };
     it('should always return a promise', function(){
         var e1 = element(by.tagName("body")).then(function(){});
         expect(e1).toBeUndefined();
